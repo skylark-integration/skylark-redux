@@ -12,6 +12,12 @@
   "scripts": {
     "build": "slib build ."
   },
+  "files": [
+    "demo/",
+    "dist/",
+    "src/",
+    "skins/"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/skylark-integration/skylark-redux.git"

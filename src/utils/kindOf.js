@@ -50,9 +50,7 @@ define(function () {
     }
     function kindOf(val) {
         let typeOfVal = typeof val;
-        if (process.env.NODE_ENV !== 'production') {
-            typeOfVal = miniKindOf(val);
-        }
+        typeOfVal = miniKindOf(val);
         return typeOfVal;
     }
     return { kindOf: kindOf };

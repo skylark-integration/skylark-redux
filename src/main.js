@@ -22,7 +22,7 @@ define([
     function isCrushed() {
     }
     
-    return slylark.attach("intg.redux",{
+    return skylark.attach("intg.redux",{
         createStore,
         combineReducers,
         bindActionCreators,

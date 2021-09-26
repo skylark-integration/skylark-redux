@@ -1,1 +1,0 @@
-{"version":3,"sources":["utils/symbol-observable.js"],"names":["define","Symbol","observable"],"mappings":";;;;;;;AAAAA,OAAO,WACH,aACA,MAAO,KAAyB,mBAAXC,QAAyBA,OAAOC,YAAc,eAA5D","file":"../../utils/symbol-observable.js","sourcesContent":["define(function () {\n    'use strict';\n    return (() => typeof Symbol === 'function' && Symbol.observable || '@@observable')();\n});"]}

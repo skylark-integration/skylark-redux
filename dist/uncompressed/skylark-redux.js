@@ -164,9 +164,7 @@ define('skylark-redux/utils/kindOf',[],function () {
     }
     function kindOf(val) {
         let typeOfVal = typeof val;
-        if (process.env.NODE_ENV !== 'production') {
-            typeOfVal = miniKindOf(val);
-        }
+        typeOfVal = miniKindOf(val);
         return typeOfVal;
     }
     return { kindOf: kindOf };
@@ -351,10 +349,8 @@ define('skylark-redux/combineReducers',[
         const finalReducers = {};
         for (let i = 0; i < reducerKeys.length; i++) {
             const key = reducerKeys[i];
-            if (process.env.NODE_ENV !== 'production') {
-                if (typeof reducers[key] === 'undefined') {
-                    warning(`No reducer provided for key "${ key }"`);
-                }
+            if (typeof reducers[key] === 'undefined') {
+                warning(`No reducer provided for key "${ key }"`);
             }
             if (typeof reducers[key] === 'function') {
                 finalReducers[key] = reducers[key];
@@ -362,9 +358,9 @@ define('skylark-redux/combineReducers',[
         }
         const finalReducerKeys = Object.keys(finalReducers);
         let unexpectedKeyCache;
-        if (process.env.NODE_ENV !== 'production') {
-            unexpectedKeyCache = {};
-        }
+
+        unexpectedKeyCache = {};
+
         let shapeAssertionError;
         try {
             assertReducerShape(finalReducers);
@@ -375,11 +371,9 @@ define('skylark-redux/combineReducers',[
             if (shapeAssertionError) {
                 throw shapeAssertionError;
             }
-            if (process.env.NODE_ENV !== 'production') {
-                const warningMessage = getUnexpectedStateShapeWarningMessage(state, finalReducers, action, unexpectedKeyCache);
-                if (warningMessage) {
-                    warning(warningMessage);
-                }
+            const warningMessage = getUnexpectedStateShapeWarningMessage(state, finalReducers, action, unexpectedKeyCache);
+            if (warningMessage) {
+                warning(warningMessage);
             }
             let hasChanged = false;
             const nextState = {};
@@ -481,7 +475,7 @@ define('skylark-redux/main',[
     function isCrushed() {
     }
     
-    return slylark.attach("intg.redux",{
+    return skylark.attach("intg.redux",{
         createStore,
         combineReducers,
         bindActionCreators,
